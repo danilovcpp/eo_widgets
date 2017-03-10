@@ -12,7 +12,8 @@
 	console.log(baseUrl)
 
 	var styles = [
-		'style.css?ver=2017.02.28'
+		'style.css?ver=2017.02.28',
+		'datepicker.css?ver=2017.03.10'
 	];
 
 	var scripts = [
@@ -22,7 +23,6 @@
 	];
 
 	var htmlContent = '<div id="suo"><div class="suo-header"><h2>Предварительная запись через Интернет</h2></div><div class="suo-form"><label>Выберите МФЦ*:</label><select id="suoOrg"></select><label>Выберите дату приема*:</label><div id="datepicker"></div><label>Выберите время приема*:</label><table id="suoTimepicker"></table><label>Введите ФИО*: (Необходимо для приема у оператора)</label><input type="text" id="suoName" placeholder="Фамилия Имя Отчество" required><label>Номер телефона: (Необходимо для уведомлений о изменениях в графике работы)</label><input type="text" id="suoTel" placeholder="+7-(___)-___-__-__"><label>Введите Email: (Мы вышлем вам талон предварительной записи на почту)</label><input type="email" id="suoEmail" placeholder="example@mail.com"><label>Сохраните ваш талон на мобильном устройстве либо распечатайте его</label><div class="suo-footer"><input type="button" id="suoSend" value="Записаться" disabled/></div></div></div>';
-
 
 	var urlPathJoinSingle = function(url, param) {
 		var separator = '/';
