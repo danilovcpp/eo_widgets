@@ -13,14 +13,17 @@
 .ui-datepicker table {
 	width: 100%;
 }
+/* Заголовок календаря - месяц */
 .ui-datepicker-header {
 	color: #623b2a;
 	font-weight: bold;
 	font-size: 20px;
 }
+/* Заголовок календаря - месяц */
 .ui-datepicker-title {
 	text-align: center;
 }
+/* Кнопки пред.месяц и след.месяц */
 .ui-datepicker-prev, .ui-datepicker-next {
 	display: inline-block;
 	width: 30px;
@@ -33,16 +36,19 @@
 	line-height: 600%;
 	overflow: hidden;
 }
+/* Пред.месяц */
 .ui-datepicker-prev {
 	float: left;
 	margin-left: 15px;
 	background-image: url('images/left.png');
 	background-position: center 3px;
 }
+/* След.месяц */
 .ui-datepicker-next {
 	float: right;
 	background-position: center 3px;
 }
+/* Дни недели (вертикальная полоса после заголовка) */
 .ui-datepicker th {
 	background: none;
 	text-transform: uppercase;
@@ -50,6 +56,7 @@
 	padding: 0;
 	border: 0px;
 }
+/* Дни недели (конкретные ячейки)*/
 .ui-datepicker th span{
 	display: block;
 	background: #623b2a;
@@ -60,9 +67,11 @@
 	line-height: 30px;
 	margin: 2px;
 }
+/* Убираем лишние отступы */
 .ui-datepicker tbody td {
 	padding: 0;
 }
+/* Общий стиль для всех дней */
 .ui-datepicker td span, .ui-datepicker td a {
 	display: inline-block;
 	margin: 2px;
@@ -75,30 +84,37 @@
 	line-height: 31px;
 	color: #623b2a;
 }
+/* Цвет ячейки под указателем мыши */
 .ui-datepicker-calendar .ui-state-hover {
 	background: #fff;
 }
+/* Цвет выбранного дня */
 .ui-datepicker-calendar .ui-state-active {
 	background: #623b2a;
 	color: #faf3f2;
 	position: relative;
 }
+/* Неактивные ячейки */
 .ui-datepicker-unselectable .ui-state-default {
 	background: #dbbea4;
 	color: #cca68a;
 }
+/* Правая колонка - выходные (Воскресение) */
 .ui-datepicker thead th:last-child {
 	border-right: 0px;
 }
+/* Правая колонка - выходные (Воскресение)*/
 .ui-datepicker thead th:last-child span {
 	background: #e67161;
 	color: #cca68a;
 }
+/* Правая колонка - выходные */
 .ui-datepicker tbody td:nth-last-child(-n+1) span{
 	border-right: 0px;
 	background: #e67161;
 	color: #cca68a;
 }
+/* Правая колонка - выходные */
 .ui-datepicker tbody tr:last-child {
 	border-bottom: 0px;
 }
