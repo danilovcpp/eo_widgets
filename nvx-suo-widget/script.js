@@ -8,10 +8,16 @@ SuoModule.current = {};
 SuoModule.init = function(settings) {
 	console.log("SuoModule init()");
 
-	if(settings.portal_id != null)
-		this.portal_id = settings.portal_id;
-	if(settings.region_id != null)
-		this.region_id = settings.region_id;
+	if(settings != null) {
+		if(settings.portal_id != null)
+			this.portal_id = settings.portal_id;
+		if(settings.region_id != null)
+			this.region_id = settings.region_id;
+		if(settings.host != null)
+			this.host = settings.host;
+
+		console.log(SuoModule.host);
+	};
 
 	this.getPlaces();
 
