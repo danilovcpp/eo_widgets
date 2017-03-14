@@ -8,9 +8,11 @@
 2. Создаем новую страницу в Wordpress
 3. Редактируем в режиме "текст", вставляем:
 
-    <div class="nvx-mfc-suo-widget"></div>
-    <script type="text/javascript">SuoSettings = {};
-    SuoSettings.portal_id = "5e07086e-7326-43d4-8c70-1631b4b4af82";
-    SuoSettings.region_id = "1cc12792-fb12-41f4-b9c5-363087a7dc6d";
-    </script>
-    <script type="text/javascript" src="http://test1.ru/wp-content/plugins/jsWidget/widget.js"></script>
+```html
+<div class="nvx-mfc-suo-widget"></div>
+<script type="text/javascript">SuoSettings = {};
+SuoSettings.portal_id = "5e07086e-7326-43d4-8c70-1631b4b4af82";
+SuoSettings.region_id = "1cc12792-fb12-41f4-b9c5-363087a7dc6d";
+</script>
+<script type="text/javascript" src="http://test1.ru/wp-content/plugins/jsWidget/widget.js"></script>
+```
