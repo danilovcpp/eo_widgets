@@ -355,6 +355,7 @@ SuoModule.printTicket = function() {
 	data += '<table style="padding: 0 20px;"><tbody><tr><td style="width: 95%; vertical-align: bottom;"><td>';
 	data += '<td style="padding-top:5px; padding-right: 5px">' + rdcPic + '</td></tr></tbody></table>';
 	data += '<div style="background-color: #EA5A38; height: 10px;">&nbsp;</div>';
+	data += '<p style="padding: 0 20px;">Запись произведена с http://' + window.location.hostname + '</p>';
 	data += '</div>';
 
 	ticketWindow.document.write(data);
