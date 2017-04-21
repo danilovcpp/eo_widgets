@@ -10,10 +10,11 @@
 
 ```html
 <div class="nvx-mfc-suo-widget"></div>
-<script type="text/javascript">SuoSettings = {};
-SuoSettings.host = "http://sqtest.egspace.ru/";
-SuoSettings.portal_id = "5e07086e-7326-43d4-8c70-1631b4b4af82";
-SuoSettings.region_id = "1cc12792-fb12-41f4-b9c5-363087a7dc6d";
+<script type="text/javascript">
+var SuoSettings = {
+"host": "http://sqtest.egspace.ru/",
+"app_id": "9b1bae07-3852-412f-b26f-c4b8b3bad5f1",
+"region_id": "55e8da0b-afbf-4110-a1a8-bf06e7dde2d4" };
 </script>
 <script type="text/javascript" src="http://widgets.mfc.ru/nvx-suo-widget/widget.js"></script>
 ```
