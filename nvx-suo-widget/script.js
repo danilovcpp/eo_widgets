@@ -1,7 +1,7 @@
 ﻿var SuoModule = {};
 
 SuoModule.host = "http://sq.mfc.ru/";
-SuoModule.portal_id = "00000000-0000-0000-0000-000000000000";
+SuoModule.app_id = "00000000-0000-0000-0000-000000000000";
 SuoModule.region_id = "00000000-0000-0000-0000-000000000000";
 SuoModule.current = {};
 
@@ -9,8 +9,8 @@ SuoModule.init = function(settings) {
 	console.log("SuoModule init()");
 
 	if(settings != null) {
-		if(settings.portal_id != null)
-			this.portal_id = settings.portal_id;
+		if(settings.app_id != null)
+			this.app_id = settings.app_id;
 		if(settings.region_id != null)
 			this.region_id = settings.region_id;
 		if(settings.host != null)
@@ -98,11 +98,11 @@ SuoModule.init = function(settings) {
 
 SuoModule.getPlaces = function() {
 	console.log("SuoModule getPlaces()");
-	console.log("portal_id = " + this.portal_id);
+	console.log("app_id = " + this.app_id);
 	console.log("region_id = " + this.region_id);
 
 	$.ajax({
-		headers: { 'portal_id' : this.portal_id, 'region_id': this.region_id },
+		headers: { 'app_id' : this.app_id, 'region_id': this.region_id },
 		url: this.host + "v1/reception/getplaces/mfc",
 		data: { isAll: "true" },
 		dataType: 'json',
@@ -134,7 +134,7 @@ SuoModule.getServices = function(placeId) {
 	console.log("place_id = " + placeId);
 
 	$.ajax({
-		headers: { 'portal_id': this.portal_id },
+		headers: { 'app_id': this.app_id },
 		url: this.host + "v1/reception/getservices?placeId=" + placeId,
 		data: { isAll: "true" },
 		dataType: 'json',
@@ -168,7 +168,7 @@ SuoModule.getSpecialists = function(serviceId, dateFrom, dateTo) {
 	console.log("SuoModule getSpecialists()");
 
 	$.ajax({
-		headers: { 'portal_id': this.portal_id },
+		headers: { 'app_id': this.app_id },
 		url: this.host+"v1/reception/getspecialists?serviceId="+serviceId+"&dateFrom="+dateFrom+"&dateTo="+dateTo,
 		dataType: 'json'
 	})
@@ -198,7 +198,7 @@ SuoModule.getTimeSlots = function(serviceId, date) {
 	console.log("ServiceId: " + serviceId);
 
 	$.ajax({
-		headers: { 'portal_id': this.portal_id },
+		headers: { 'app_id': this.app_id },
 		type: "POST",
 		contentType: "application/json",
 		url: this.host + "v1/reception/gettimeslots/"+serviceId+"/"+date,
@@ -248,7 +248,7 @@ SuoModule.createReception = function(serviceId, date, position) {
 	console.log("selected position recId: " + position.recId);
 
 	$.ajax({
-		headers: { 'portal_id': this.portal_id, 'user_token': '1000299353' },
+		headers: { 'app_id': this.app_id }, // 'user_token': '1000299353'
 		type: "POST",
 		contentType: "application/json",
 		url: this.host + "v1/reception/createreception/"+ serviceId,
@@ -332,11 +332,11 @@ SuoModule.printTicket = function() {
 
 	var ticketWindow = window.open('', 'printTicketDiv', 'height=500,width=520');
 	ticketWindow.document.write('<html><head><meta http-equiv=Content-Type content="text/html; charset=utf-8"><title>Reception ticket</title></head><body style="color:#681F00;background:white; font-size:12.0pt;line-height:115%;font-family:Arial,sans-serif,serif; width: 500px;">');
-	var data = '<div style=\'border: solid #CD9660 2px;\'>';
+	var data = '<div style=\'border: solid #dbbea4 2px;\'>';
 	data += '<table style="padding: 10px;"><tbody><tr><td style="width: 95%; vertical-align: bottom;"><span style="padding: 0; font-size: 20pt; font-weight:400; text-transform: uppercase;">' + model.ticketName + '</span></td>';
 	data += '<td style="padding-top:5px; padding-right: 5px">' + mfcPic + '</td></tr></tbody></table>';
 	//полоска
-	data += '<div style="background-color: #EA5A38; height: 10px;">&nbsp;</div>';
+	data += '<div style="background-color: #623b2a; height: 4px;">&nbsp;</div>';
 	if (model.place != null) {
 		data += '<p style="padding: 0 20px;">Организация: ' + model.place.name + '</p>';
 		data += '<p style="padding: 0 20px;">Адрес: ' + model.place.address + '</p>';
@@ -344,17 +344,17 @@ SuoModule.printTicket = function() {
 	if (model.service != null)
 		data += '<p style="padding: 0 20px; margin-bottom: 0;">Услуга: ' + model.service.name + '</p>';
 	if (model.ticketDateTime != null)
-		data += '<p style="background-color: #CD9660; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Дата и время приема: ' + model.ticketDateTime + '</p>';
+		data += '<p style="background-color: #dbbea4; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Дата и время приема: ' + model.ticketDateTime + '</p>';
 	if (model.ticketDate != null)
-		data += '<p style="background-color: #CD9660; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Дата приема: ' + model.ticketDate + '</p>';
+		data += '<p style="background-color: #dbbea4; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Дата приема: ' + model.ticketDate + '</p>';
 	if (model.ticketTime != null)
-		data += '<p style="background-color: #CD9660; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Время приема: ' + model.ticketTime + '</p>';
+		data += '<p style="background-color: #dbbea4; height: 22px; font-size: 14pt; padding: 10px 20px; margin-top: 5px;margin-bottom:0;">Время приема: ' + model.ticketTime + '</p>';
 	
 	if (model.specialist != null)
 		data += '<p style="padding: 0 20px; margin-bottom: 0;">ФИО специалиста: ' + model.specialist.name + '</p>';
 	data += '<table style="padding: 0 20px;"><tbody><tr><td style="width: 95%; vertical-align: bottom;"><td>';
 	data += '<td style="padding-top:5px; padding-right: 5px">' + rdcPic + '</td></tr></tbody></table>';
-	data += '<div style="background-color: #EA5A38; height: 10px;">&nbsp;</div>';
+	data += '<div style="background-color: #623b2a; height: 4px;">&nbsp;</div>';
 	data += '<p style="padding: 0 20px;">Запись произведена с http://' + window.location.hostname + '</p>';
 	data += '</div>';
 
@@ -362,8 +362,8 @@ SuoModule.printTicket = function() {
 	ticketWindow.document.write('</body></html>');
 	ticketWindow.document.close(); // necessary for IE >= 10
 	ticketWindow.focus(); // necessary for IE >= 10
-	//ticketWindow.print();
-	//ticketWindow.close();
+	ticketWindow.print();
+	ticketWindow.close();
 }
 
 SuoModule.showTicket = function() {
@@ -389,7 +389,34 @@ SuoModule.showTicket = function() {
 		recId: ""
 	};
 
-	$('#suo').html('<label>Вы успешно зарегистрированы!</label><br/><br/><input type="button" onclick="SuoModule.printTicket()" value="Печать талона"/>');
+	var model = SuoModule.current.model;
+
+	var data = '<div class="suo-ticket">';
+	data += '<h2>' + model.ticketName + '</h2>';
+	data += '<div class="suo-ticket-line">&nbsp;</div>';
+
+	if (model.place != null) {
+		data += '<p>Организация: ' + model.place.name + '</p>';
+		data += '<p>Адрес: ' + model.place.address + '</p>';
+	}
+	if (model.service != null)
+		data += '<p>Услуга: ' + model.service.name + '</p>';
+	if (model.ticketDate != null)
+		data += '<p class="suo-ticket-date">Дата приема: ' + model.ticketDate + '</p>';
+	if (model.ticketTime != null)
+		data += '<p class="suo-ticket-time">Время приема: ' + model.ticketTime + '</p>';
+	
+	if (model.specialist != null)
+		data += '<p>ФИО специалиста: ' + model.specialist.name + '</p>';
+
+	data += '<div class="suo-ticket-line">&nbsp;</div>';
+	data += '<p>Запись произведена с http://' + window.location.hostname + '</p>';
+	data += '</div>';
+	data += '<div class="suo-ticket-action">';
+	data += '<input type="button" onclick="SuoModule.printTicket()" value="Печать талона"/>';
+	data += '</div>';
+
+	$('#suo').html('<p>Вы успешно зарегистрированы!</p><br/>' + data);
 }
 
 SuoModule.submit = function() {

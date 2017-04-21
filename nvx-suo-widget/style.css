@@ -1,27 +1,21 @@
-﻿*,
+*,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-h1 {
-	color: #E04E39;
-	display: none;
-	font-weight: bold;
-	text-align: center;
-	font: 25px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-	padding: 20px 0 0 0;
+#suo {
+	min-width: 550px;
 }
 .suo-header {
 	background: #623b2a;
-	padding: 17px 20px 17px 20px;
+	padding: 0 20px;
 }
 .suo-header h2 {
-	padding: 0;
+	padding-top: 12px;
 	margin: 0;
-	color: #fffdff;
-	font-size: 25px;
-	font-weight: bold;
-	text-align: left;
+	color: #fff;
+	height: 57px;
+	font: 26px Arial, sans-serif !important;
 }
 .suo-form {
 	background: #f3e9e0;
@@ -29,18 +23,21 @@ h1 {
 }
 .suo-form label {
 	display: block;
-	color: #e5725c;
+	color: #623b2a;/*#e5725c;*/
 	font-size: 17px;
 	padding-top: 20px;
 }
 .suo-form input, select {
-	border: 1px solid black;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
-	font: 17px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	border: 1px solid #dbbea4;
+	font: 17px/1.4 Arial, sans-serif !important;
 	border-radius: 0;
 	height: 45px;
 	width: 100%;
 	margin-top: 3px;
+	padding-left: 10px;
+}
+.suo-form input[type="button"] {
+	border: 0;
 }
 .suo-form table {
 	width: 100%;
@@ -53,15 +50,17 @@ h1 {
 	border: 0px;
 }
 .suo-time {
-	display: table;
+	display: block;
 	width: 100%;
-	vertical-align: middle;
 	text-align: center;
 	background: #dbbea4;
 	color: #624d43;
+	height: 30px;
+	font-size: 16px;
+	padding-top: 6px;
 }
 .suo-time:hover {
-	background: #fff !important;
+	background: #b29179 !important;
 	color: #623b2a !important;
 	cursor: pointer;
 }
@@ -81,22 +80,190 @@ h1 {
 	background: #623b2a !important;
 	color: #fdf8fb !important;
 }
+.suo-time-filled {
+	background: #bb9e84;
+	font-weight: bold;
+}
+.suo-time-filled:hover {
+	background: #fff;
+	color: #abc;
+}
 .suo-footer {
 	width: 100%;
 	display: table;
 	margin-top: 10px;
+    text-align: center;
 }
 #suoSend {
 	background: #623b2a;
+	color: #fff;
+	width: 240px;
 }
 #suoSend:disabled {
-	background: #dbbea4 !important;
-	color: #cda78b !important;
+	background: #7a5849 !important;
+	color: #957d73 !important;
 	border: 0;
 }
 #suoSend[disabled]:hover {
-	background: #dbbea4 !important;
-	color: #cda78b !important;
+	background: #7a5849 !important;
+	color: #957d73 !important;
 	border: 0;
 	cursor: default !important;
+}
+
+/* DatePicker Container */
+.ui-datepicker {
+	width: 449px;
+	height: auto;
+	margin: auto;
+	margin-top: 10px;
+	font: 9pt Arial, sans-serif;
+}
+.ui-datepicker a {
+	text-decoration: none;
+}
+/* DatePicker Table */
+.ui-datepicker table {
+	width: 100%;
+}
+.ui-datepicker-header {
+	color: #623b2a;
+	font-weight: bold;
+	font-size: 20px;
+}
+.ui-datepicker-title {
+	text-align: center;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-right: 15px;
+	text-align: center;
+	cursor: pointer;
+	background-image: url('images/right.png');
+	background-repeat: no-repeat;
+	line-height: 600%;
+	overflow: hidden;
+}
+.ui-datepicker-prev {
+	float: left;
+	margin-left: 15px;
+	background-image: url('images/left.png');
+	background-position: center 3px;
+}
+.ui-datepicker-next {
+	float: right;
+	background-position: center 3px;
+}
+.ui-datepicker th {
+	background: none;
+	text-transform: uppercase;
+	font-size: 10pt;
+	padding: 0;
+	border: 0px;
+}
+.ui-datepicker th span{
+	display: block;
+	background: #623b2a;
+	color: #dbbfad;
+	text-transform: uppercase;
+	font-size: 10pt;
+	text-align: center;
+	line-height: 30px;
+	margin: 2px;
+}
+.ui-datepicker tbody td {
+	padding: 0;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+	display: inline-block;
+	margin: 2px;
+	background: #dbbea4;
+	font-weight: bold;
+	font-size: 10pt;
+	text-align: center;
+	width: 60px;
+	height: 31px;
+	line-height: 31px;
+	color: #623b2a;
+}
+.ui-datepicker-calendar .ui-state-hover {
+	background: #b29179;
+}
+.ui-datepicker-calendar .ui-state-active {
+	background: #623b2a;
+	color: #faf3f2;
+	position: relative;
+}
+.ui-datepicker-unselectable .ui-state-default {
+	background: #dbbea4;
+	color: #cca68a;
+}
+.ui-datepicker thead th:last-child {
+	border-right: 0px;
+}
+.ui-datepicker thead th:last-child span {
+	background: #e67161;
+	color: #cca68a;
+}
+.ui-datepicker tbody td:nth-last-child(-n+1) span{
+	border-right: 0px;
+	background: #e67161;
+	color: #cca68a;
+}
+.ui-datepicker tbody tr:last-child {
+	border-bottom: 0px;
+}
+
+.suo-ticket {
+	border: solid #dbbea4 2px;
+	color: #681f00;
+	width: 450px;
+}
+.suo-ticket h2 {
+	margin: 0;
+	padding: 17px 20px;
+	font-size: 25px;
+}
+.suo-ticket p {
+	display: block;
+	padding: 10px 20px;
+	font-size: 17px;
+}
+.suo-ticket p:first-child {
+	margin: 0;
+}
+.suo-ticket-date {
+	background: #dbbea4;
+	margin-bottom: 5px;
+}
+.suo-ticket-time {
+	background: #dbbea4;
+	margin-bottom: 0;
+}
+.suo-ticket-line {
+	display: block;
+	background: #623b2a;
+	height: 2px;
+}
+.suo-ticket-action input[type="button"] {
+	border: 0;
+	border-radius: 0;
+	margin-top: 15px;
+    padding: 10px;
+	background: #623b2a;
+	color: #fff;
+}
+
+.suo-operator-info {
+}
+.suo-operator-info p {
+	padding: 0;
+	margin-top: 5px;
+}
+.suo-operator-entry {
+	background: #dbbea4;
+	padding: 10px;
+	margin-top: 10px;
 }
