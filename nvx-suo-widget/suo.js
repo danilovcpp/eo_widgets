@@ -49,37 +49,8 @@ SuoModule.init = function(settings) {
 		},
 		dateFormat: 'yy-mm-dd',
 		minDate: 0,
-		maxDate: '+30D'//,
-		//beforeShowDay: SuoModule.available
+		maxDate: '+30D'
 	});
-
-/*
-	natDays = [
-		[1, 1, 'ru'], [1, 2, 'ru'], [1, 3, 'ru'],
-		[1, 4, 'ru'], [1, 5, 'ru'], [1, 6, 'ru'],
-		[1, 7, 'ru'], [1, 8, 'ru'], [2, 23, 'ru'],
-		[3, 8, 'ru'], [5, 1, 'ru'], [5, 9, 'ru'],
-		[6, 12, 'ru'], [11, 4, 'ru']
-	];
-
-	function nationalDays(date) {
-		for (i = 0; i < natDays.length; i++) {
-			if (date.getMonth() == natDays[i][0] - 1
-				&& date.getDate() == natDays[i][1]) {
-				return [false, natDays[i][2] + '_day'];
-			}
-		}
-		return [true, ''];
-	}
-	
-	function noWeekendsOrHolidays(date) {
-		var noWeekend = $.datepicker.noWeekends(date);
-		if (noWeekend[0]) {
-			return nationalDays(date);
-		} else {
-			return noWeekend;
-		}
-	}*/
 
 	$("#suoOrg").change(function() {
 		console.log("Handler for .change() called.");
@@ -93,7 +64,6 @@ SuoModule.init = function(settings) {
 	});
 
 	$("#suoSend").click(SuoModule.submit);
-
 }
 
 SuoModule.getPlaces = function() {
@@ -179,7 +149,6 @@ SuoModule.getSpecialists = function(serviceId, dateFrom, dateTo) {
 		SuoModule.current.availableDates = new Array();
 
 		$.each(data.schedule[0].dateList, function(i, item) {
-	        //console.log(item.name);
 			SuoModule.current.availableDates.push(item.name);
     	});
 
